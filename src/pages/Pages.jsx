@@ -22,7 +22,7 @@ function Pages() {
         <Routes>
           <Route path={"/login"} element={<Login />} />
           <Route path={"/playlists"} element={<Playlists />} />
-          <Route path={"/playlists/:track"} element={<Playlist />} />
+          <Route path={"/playlists/:id"} element={<Playlist />} />
           <Route
             path={"/"}
             element={token ? <Home token={token} /> : <Login />}

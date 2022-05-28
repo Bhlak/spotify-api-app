@@ -50,10 +50,11 @@ function NavBar() {
 }
 
 const Nav = styled.div`
-  margin: 1rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
 `;
 
 const NavItems = styled.div`
@@ -62,6 +63,7 @@ const NavItems = styled.div`
   align-items: center;
   h4 {
     text-align: center;
+    color: whitesmoke;
   }
 `;
 
@@ -74,7 +76,6 @@ const LogLink = styled(NavLink)`
   justify-content: center;
   text-decoration: none;
   border: none;
-  box-shadow: 1px 1px lightgrey;
   color: whitesmoke;
   background-image: linear-gradient(to bottom right, #25e465 15%, #1ed760 100%);
   cursor: pointer;
@@ -105,7 +106,6 @@ const SButton = styled.button`
   height: 3em;
   border-radius: 2em;
   border: none;
-  box-shadow: 1px 1px lightgrey;
   color: whitesmoke;
   background-image: linear-gradient(to bottom right, #25e465 15%, #1ed760 100%);
   cursor: pointer;

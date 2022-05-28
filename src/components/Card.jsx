@@ -39,7 +39,13 @@ const ShowCard = ({ playlist }) => {
   }
 
   return (
-    <Link to={`/playlists/${playlist.id}`}>
+    <Link
+      to={`/playlists/${playlist.id}`}
+      state={{
+        playlist: playlist,
+        image: data,
+      }}
+    >
       <CardContainer>
         <ImageContainer>
           <SImage src={data} alt={playlist.name} />

@@ -28,7 +28,7 @@ const ShowPlaylists = () => {
   return (
     <Splide
       aria-label="Playlists"
-      options={{ perPage: 4, pagination: false, gap: "2rem", arrows: false }}
+      options={{ perPage: 4, drag: "free", gap: "2rem" }}
     >
       {data.map((playlist) => {
         return (
