@@ -28,7 +28,7 @@ const ShowDetails = () => {
     return <span>{console.log(error.message, error)}</span>;
   }
 
-  return <PlaylistDetails playlist={data} />;
+  return <PlaylistDetails tracks={data.items} />;
 };
 
 const getDetails = async (params) => {

@@ -1,39 +1,38 @@
 import React from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
+import TrackDetails from "./TrackDetails";
 
-function PlaylistDetails() {
+function PlaylistDetails({ tracks }) {
   const location = useLocation();
   const { playlist, image } = location.state;
-  console.log(playlist);
+  // let track = tracks[86].track;
+  // console.log(track);
+
   return (
-    <DetailsWrapper>
-      <DetailsContainer>
+    <>
+      <DescriptionContainer>
         <img src={image} alt="" />
         <h4> {playlist.name}</h4>
         <ul>
           <li>Made By {playlist.owner.display_name}</li>
           <li>{playlist.description}</li>
         </ul>
-      </DetailsContainer>
-      <PlaylistItems>Second</PlaylistItems>
-    </DetailsWrapper>
+      </DescriptionContainer>
+      <PlaylistItems>
+        {tracks.map((track) => {
+          return <TrackDetails track={track.track} />;
+        })}
+      </PlaylistItems>
+    </>
   );
 }
 
-const DetailsWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  box-shadow: 0.1px 0.1px 1px #25e465, 0.1px 0.1px 1px #25e465;
-  padding: 1rem;
-  border-radius: 1rem;
-  display: flex;
-`;
-const DetailsContainer = styled.div`
+const DescriptionContainer = styled.div`
   width: 30%;
-  height: 100%;
+  height: fit-content;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 1rem 2rem;
   border: 0.5px solid #25e465;
   font-family: "Signika Negative", sans-serif;
   img {
@@ -55,9 +54,10 @@ const DetailsContainer = styled.div`
 `;
 
 const PlaylistItems = styled.div`
-  height: 100%;
-  flex-grow: 1;
+  min-height: 100vh;
   border: 0.5px solid #25e465;
+  padding: 1rem 0;
+  box-sizing: border-box;
 `;
 
 export default PlaylistDetails;

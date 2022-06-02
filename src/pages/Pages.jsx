@@ -21,8 +21,14 @@ function Pages() {
       <Wrapper>
         <Routes>
           <Route path={"/login"} element={<Login />} />
-          <Route path={"/playlists"} element={<Playlists />} />
-          <Route path={"/playlists/:id"} element={<Playlist />} />
+          <Route
+            path={"/playlists"}
+            element={token ? <Playlists /> : <Login />}
+          />
+          <Route
+            path={"/playlists/:id"}
+            element={token ? <Playlist /> : <Login />}
+          />
           <Route
             path={"/"}
             element={token ? <Home token={token} /> : <Login />}
