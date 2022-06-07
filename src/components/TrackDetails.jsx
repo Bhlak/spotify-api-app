@@ -32,7 +32,7 @@ function TrackDetails({ track }) {
         <div>{track.name}</div>
         <div>{artistNames(track.artists)}</div>
       </span>
-      <span style={{ overflow: "hidden" }}>{track.album.name}</span>
+      <span>{track.album.name}</span>
       <span>{track.album.release_date}</span>
       <span>
         {timeConversion(track.duration_ms)}
@@ -45,16 +45,22 @@ function TrackDetails({ track }) {
 const ItemsContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
   align-items: center;
-  text-wrap: nowrap;
-  overflow: hidden;
   border-top: 1px solid lightgrey;
   height: 3rem;
   padding: 0 1rem;
   box-sizing: border-box;
   span {
+    padding: 1em;
     font-size: small;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 `;
 

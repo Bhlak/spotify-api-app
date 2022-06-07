@@ -10,7 +10,7 @@ function PlaylistDetails({ tracks }) {
   // console.log(track);
 
   return (
-    <>
+    <DetailsWrapper>
       <DescriptionContainer>
         <img src={image} alt="" />
         <h4> {playlist.name}</h4>
@@ -24,16 +24,23 @@ function PlaylistDetails({ tracks }) {
           return <TrackDetails track={track.track} />;
         })}
       </PlaylistItems>
-    </>
+    </DetailsWrapper>
   );
 }
 
+const DetailsWrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  padding: 1rem;
+  display: flex;
+`;
 const DescriptionContainer = styled.div`
-  width: 30%;
+  width: 40%;
   height: fit-content;
   box-sizing: border-box;
-  padding: 1rem 2rem;
-  border: 0.5px solid #25e465;
+  padding: 0 0 0.5rem 0.5rem;
+  /* border: 0.5px solid #25e465; */
   font-family: "Signika Negative", sans-serif;
   img {
     width: 100%;
@@ -55,8 +62,8 @@ const DescriptionContainer = styled.div`
 
 const PlaylistItems = styled.div`
   min-height: 100vh;
+  flex-grow: 1;
   border: 0.5px solid #25e465;
-  padding: 1rem 0;
   box-sizing: border-box;
 `;
 
