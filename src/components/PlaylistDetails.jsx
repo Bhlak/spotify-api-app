@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import TrackDetails from "./TrackDetails";
 
+
+// Component to display the details of the selected playlist
 function PlaylistDetails({ tracks }) {
   const location = useLocation();
   const { playlist, image } = location.state;
@@ -29,10 +31,9 @@ function PlaylistDetails({ tracks }) {
 }
 
 const DetailsWrapper = styled.div`
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   height: auto;
-  padding: 1rem;
   display: flex;
 `;
 const DescriptionContainer = styled.div`
