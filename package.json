@@ -1,7 +1,7 @@
 {
   "name": "spotify-api",
   "version": "0.1.0",
-  "homepage": "https://Bhlak.github.io",
+  "homepage": "https://bhlak.github.io/spotify-api-app",
   "private": true,
   "dependencies": {
     "@splidejs/react-splide": "^0.7.5",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b main -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
