@@ -18,7 +18,7 @@ const ShowDetails = () => {
 
   const { isError, isLoading, error, data } = useQuery(
     ["details", params],
-    () => getDetails(params)
+    () => getDetails(params),
   );
 
   if (isLoading) {
@@ -32,7 +32,7 @@ const ShowDetails = () => {
 };
 
 const getDetails = async (params) => {
-  let token = localStorage.getItem("token");
+  let token = sessionStorage.getItem("token");
   const response = await fetch(
     `https://api.spotify.com/v1/playlists/${params.id}/tracks`,
     {
@@ -41,7 +41,7 @@ const getDetails = async (params) => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-    }
+    },
   );
   const data = await response.json();
   return data;

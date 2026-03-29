@@ -6,20 +6,32 @@ import NavBar from "../components/NavBar";
 import Home from "./Home";
 import Playlist from "./Playlist";
 import styled from "styled-components";
+import Callback from "../components/Callback";
 
 function Pages() {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
-    }
+    const checkToken = () => {
+      const storedToken = sessionStorage.getItem("token");
+      if (storedToken) {
+        setToken(storedToken);
+      }
+    };
+
+    checkToken();
+    window.addEventListener("storage", checkToken);
+    return window.removeEventListener("storage", checkToken);
   }, []);
   return (
     <>
       <NavBar />
       <Wrapper>
         <Routes>
+          <Route
+            path={"/callback"}
+            element={<Callback setToken={setToken} />}
+          />
           <Route path={"/login"} element={<Login />} />
           <Route
             path={"/playlists"}
@@ -31,6 +43,10 @@ function Pages() {
           />
           <Route
             path={"/"}
+            element={token ? <Home token={token} /> : <Login />}
+          />
+          <Route
+            path={"/home"}
             element={token ? <Home token={token} /> : <Login />}
           />
         </Routes>

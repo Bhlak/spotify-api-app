@@ -16,7 +16,7 @@ function Playlists() {
 const ShowPlaylists = () => {
   const { isLoading, isError, data, error } = useQuery(
     "playlists",
-    getPlaylists
+    getPlaylists,
   );
 
   if (isLoading) {
@@ -39,7 +39,7 @@ const ShowPlaylists = () => {
 };
 
 const getPlaylists = async () => {
-  let token = localStorage.getItem("token");
+  let token = sessionStorage.getItem("token");
   const rawData = await fetch("https://api.spotify.com/v1/me/playlists", {
     headers: {
       Accept: "application/json",

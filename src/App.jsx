@@ -1,0 +1,18 @@
+import { BrowserRouter as Router } from "react-router-dom";
+import Pages from "./pages/Pages";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
+import { GlobalStyles } from "./styles/GlobalStyles";
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Router>
+        <Pages />
+      </Router>
+    </ThemeProvider>
+  );
+}
+
+export default App;
